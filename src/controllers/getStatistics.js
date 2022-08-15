@@ -1,4 +1,13 @@
+const fs = require('fs');
+// const jsonfile = fs.readFileSync('../../data/payroll.json');
+const json = fs.readFileSync('data/payroll.json', 'utf8')
+
+
+
+
+
 module.exports = (req, res) => {
-    res.status(405);
-    res.send('Not implemented yet.');
+    console.log(json);
+
+    res.send('implemented');
 };

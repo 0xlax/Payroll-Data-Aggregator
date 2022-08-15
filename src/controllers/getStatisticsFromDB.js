@@ -1,5 +1,3 @@
-import data from '../../data/payroll.json';
-console.log(data);
 
 
 const { json } = require("express");
