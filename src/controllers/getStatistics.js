@@ -1,4 +1,8 @@
 const fs = require('fs');
+
+// const payroll = require('../../data/payroll.json')
+
+
 const payroll = fs.readFileSync('data/payroll.json', 'utf8', (err, jsonString) => {
     if (err) {
         console.log(err)
@@ -13,7 +17,6 @@ const payroll = fs.readFileSync('data/payroll.json', 'utf8', (err, jsonString) =
     }
     
 });
-// const payroll = require('../../data/payroll.json')
 
 const overview = {
     "number_of_employees": "",        // number of employees in the data set
@@ -44,15 +47,19 @@ const overview = {
         "Agent" : "",
         "Engineer" : "",
 
-
-
-
-
-
-
-
     }
 }
+
+
+fs.writeFile('data/userrecord.json', JSON.stringify(overview, null, 2), err => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("User record file written")
+    }
+})
+
+
 
 
 
@@ -60,7 +67,6 @@ const overview = {
 
 
 module.exports = (req, res) => {
-    console.log(payroll)
-
+    console.log(JSON.stringify(overview, null, 2))
     res.send('implemented');
 };
