@@ -1,35 +1,40 @@
 const fs = require('fs');
 
-const payrolll = require('../../data/payroll.json')
 
 
-const payroll = fs.readFileSync('data/payroll.json', 'utf8', (err, jsonString) => {
-    if (err) {
-        console.log(err)
-    } else {
+// The code below is for a safer way to generate Javascript objects, 
+// unfortunately they are comparatively slower
+
+// const payroll = fs.readFileSync('data/payroll.json', 'utf8', (err, jsonString) => {
+//     if (err) {
+//         console.log(err)
+//     } else {
 
 
-        console.log(jsonString)
-        // // parse calls are volatile --- crashing the application hence a try catch wrap
-        // try {
-        //         const data = JSON.parse(jsonString);
-        //         console.log(data)
-        // } catch (err) {
-        //     console.log('Error parsing JSON', err);
-        // }
-    }
+//         console.log(jsonString)
+//         // // parse calls are volatile --- crashing the application hence a try catch wrap
+//         // try {
+//         //         const data = JSON.parse(jsonString);
+//         //         console.log(data)
+//         // } catch (err) {
+//         //     console.log('Error parsing JSON', err);
+//         // }
+//     }
     
-});
+// });
+
+// read json
+const payroll = require('../../data/payroll.json')
 
 
 
 // number of users
-var count = Object.keys(payrolll).length
+var count = Object.keys(payroll).length
 
 //sum of salaries paid
 let salaries = []
-for (let i = 0; i< payrolll.length; i++) {
-    salaries.push(parseInt(payrolll[i].salary.amount))
+for (let i = 0; i< payroll.length; i++) {
+    salaries.push(parseInt(payroll[i].salary.amount))
 }
 
 var sum = 0;
