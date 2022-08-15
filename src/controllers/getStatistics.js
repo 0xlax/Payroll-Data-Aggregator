@@ -47,7 +47,7 @@ var average = Math.round(sum/count)
 
 
 let positions = []
-for (let i = 0; i < payroll.length; i++) {
+for (let i = 0; i< payroll.length; i++) {
 
     if (!positions.includes(payroll[i].position)) {
         positions.push(payroll[i].position);
@@ -57,15 +57,16 @@ for (let i = 0; i < payroll.length; i++) {
 
 
 
+
 // Lodash and external libraries redues efficiency - hence using regular for loop
 // Average salary paid by position
 
 var salaries_pos = []
 
-for (let i = 0; i < payroll.length; i++) {
-    for (let j = 0; j < positions.length; j++) {
-        if (positions.includes(payroll[i].position)) {
-            salaries_pos.payroll[i].position.salary.amount += salaries_pos.payroll[i].position.salary.amount;
+for (let i = 0; i< positions.length; i++) {
+    for (let j = 0; j< payroll.length; j++) {
+        if (positions[i] == payroll[j].position) {
+            salaries_pos.payroll[j].position.salary.amount += payroll[i].position.salary.amount;
         }
     }
     
