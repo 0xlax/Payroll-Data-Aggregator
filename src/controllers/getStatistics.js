@@ -45,7 +45,33 @@ for (let i = 0; i < salaries.length; i++) {
 // average_salary
 var average = Math.round(sum/count)
 
-// average salary paid by position
+
+let positions = []
+for (let i = 0; i < payroll.length; i++) {
+
+    if (!positions.includes(payroll[i].position)) {
+        positions.push(payroll[i].position);
+    }
+}
+
+
+
+
+// Lodash and external libraries redues efficiency - hence using regular for loop
+// Average salary paid by position
+
+var salaries_pos = []
+
+for (let i = 0; i < payroll.length; i++) {
+    for (let j = 0; j < positions.length; j++) {
+        if (positions.includes(payroll[i].position)) {
+            salaries_pos.payroll[i].position.salary.amount += salaries_pos.payroll[i].position.salary.amount;
+        }
+    }
+    
+}
+
+
 
 
 
@@ -85,6 +111,9 @@ var overview = {
         "Technician" : "",
         "Agent" : "",
         "Engineer" : "",
+        "Producer" : "",
+        "Administrator" : "",
+
 
     }
 }
@@ -107,6 +136,8 @@ fs.writeFile('data/userrecord.json', JSON.stringify(overview, null, 2), err => {
 
 module.exports = (req, res) => {
     console.log(JSON.stringify(overview, null, 2))
+    console.log(salaries_pos)
+
 
     res.send('implemented');
 };
