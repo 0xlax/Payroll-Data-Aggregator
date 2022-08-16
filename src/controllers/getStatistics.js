@@ -31,8 +31,7 @@ const payroll = require('../../data/payroll.json')
 
 // number of users
 var count = Object.keys(payroll).length
-console.log(obj1["Architect"]);
-console.log(obj2[1].value);
+
 //sum of salaries paid
 let salaries = []
 for (let i = 0; i< payroll.length; i++) {

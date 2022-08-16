@@ -15,6 +15,8 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "node-fetch": "^3.2.10"
+    "knex": "^2.2.0",
+    "node-fetch": "^3.2.10",
+    "sqlite3": "^5.0.11"
   }
 }
