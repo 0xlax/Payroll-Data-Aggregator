@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "data:generate": "node src/generate-data.js"
+    "data:generate": "node src/generate-data.js",
+    "migrate": "knex migrate:latest --knexfile ./knexfile.js"
   },
   "author": "Klink Finance LTD",
   "license": "ISC",
@@ -17,6 +18,16 @@
     "express": "^4.18.1",
     "knex": "^2.2.0",
     "node-fetch": "^3.2.10",
+    "pg": "^8.7.3",
     "sqlite3": "^5.0.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xlax/backend-developer.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/0xlax/backend-developer/issues"
+  },
+  "homepage": "https://github.com/0xlax/backend-developer#readme"
 }

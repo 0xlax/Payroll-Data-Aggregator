@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 
 /*
@@ -15,7 +17,9 @@ const getStatisticsFromDB = require('./controllers/getStatisticsFromDB');
 
 app.get('/stats', getStatistics);
 app.get('/stats-from-db', getStatisticsFromDB);
-
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
 
 
