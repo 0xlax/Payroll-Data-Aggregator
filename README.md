@@ -1,4 +1,17 @@
+
+```
+fuser -k 3000/tcp
+```
+
+```
+npm run start
+```
+
+http://localhost/3000/stat
+
+
 # Klink Backend Developer Coding Challenge
+
 
 Welcome to the Klink backend coding challenge.
 
