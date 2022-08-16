@@ -62,6 +62,10 @@ const obj = positions.reduce((accumulators, value) => {
     return {...accumulators, [value]: ""};
 }, {});
 
+positions.forEach(object => {
+    object.salary = '';
+});
+
 
 
 // Lodash and external libraries redues efficiency - hence using regular for loop
@@ -70,23 +74,17 @@ const obj = positions.reduce((accumulators, value) => {
 
 
 
+for (let j = 0; j <= positions.length; j++) {
+    var q = payroll[j].position
 
-// for (let i = 0; i <= payroll.length; i++) {
-//     for (let j = 0; j <= positions.length; j++) {
-//         if (positions.includes(payroll[i])) {
-//             pos = payroll[i].position;
-//             position[j] += payroll[i].salary.amount;
-//         }
-//     }
-// }
-
-
-// // for (let i = 0; i <= positions.length; i++) {
-// //     for (let j = 0; j <= payroll.length; j++) {
-// //         console.log(payroll[i].salary.amount)
-// //     }
-// // }
-
+    for (let i = 0; i <= payroll.length ; i++) {
+        var  p = payroll[i].salary.amount
+        console.log(p)
+        console.log(q)
+        
+        break;
+    }
+}
 
 
 
