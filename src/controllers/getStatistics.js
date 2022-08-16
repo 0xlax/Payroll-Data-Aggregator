@@ -55,6 +55,12 @@ for (let i = 0; i< payroll.length; i++) {
 }
 
 
+// convert array to Object Keys format
+
+
+const obj = positions.reduce((accumulators, value) => {
+    return {...accumulators, [value]: ""};
+}, {});
 
 
 
@@ -64,13 +70,22 @@ for (let i = 0; i< payroll.length; i++) {
 
 
 
-for (let i = 0; i <= payroll.length; i++) {
-    if (positions.includes(payroll[i])) {
-        var pos = payroll[i].position;
-        positions[payroll[i].position.toString()] += payroll[i].salary.amount;
-    }
-}
 
+// for (let i = 0; i <= payroll.length; i++) {
+//     for (let j = 0; j <= positions.length; j++) {
+//         if (positions.includes(payroll[i])) {
+//             pos = payroll[i].position;
+//             position[j] += payroll[i].salary.amount;
+//         }
+//     }
+// }
+
+
+// // for (let i = 0; i <= positions.length; i++) {
+// //     for (let j = 0; j <= payroll.length; j++) {
+// //         console.log(payroll[i].salary.amount)
+// //     }
+// // }
 
 
 
@@ -138,9 +153,7 @@ fs.writeFile('data/userrecord.json', JSON.stringify(overview, null, 2), err => {
 
 module.exports = (req, res) => {
     console.log(JSON.stringify(overview, null, 2))
-
-    console.log(positions[payroll[2].position.toString()])
-
+    console.log(positions)
 
     res.send('implemented');
 };
