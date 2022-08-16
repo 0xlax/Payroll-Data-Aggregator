@@ -47,7 +47,7 @@ var average = Math.round(sum/count)
 
 
 let positions = []
-for (let i = 0; i< payroll.length; i++) {
+for (let i = 0; i< payroll.length -1; i++) {
 
     if (!positions.includes(payroll[i].position)) {
         positions.push(payroll[i].position);
@@ -55,16 +55,43 @@ for (let i = 0; i< payroll.length; i++) {
 }
 
 
+let jobandwage = []
+for (let i = 0; i < payroll.length - 1; i++) {
+    jobandwage[payroll[i].position] = payroll[i].salary.amount;
+}
+
+
 // convert array to Object Keys format
 
+function arr2obj(arr) {
+  
+    // Create an empty object
+    let obj = {};
+  
+    arr.forEach((v) => {
+  
+        // Extract the key and the value
+        let key = v[0];
+        let value = v[1];
+  
+        // Add the key and value to
+        // the object
+        obj[key] = value;
+    });
+  
+    // Return the object
+    return obj;
+}
 
-const obj = positions.reduce((accumulators, value) => {
-    return {...accumulators, [value]: ""};
-}, {});
+job = arr2obj(jobandwage)
 
-positions.forEach(object => {
-    object.salary = '';
-});
+
+
+// const obj = positions.reduce((accumulators, value) => {
+//     return {...accumulators, [value]: ""};
+// }, {});
+
+
 
 
 
@@ -74,17 +101,24 @@ positions.forEach(object => {
 
 
 
-for (let j = 0; j <= positions.length; j++) {
-    var q = payroll[j].position
+// for (let j = 0; j <= positions.length; j++) {
+//     var q = positions[j]
+//     console.log(q)
+    
 
-    for (let i = 0; i <= payroll.length ; i++) {
-        var  p = payroll[i].salary.amount
-        console.log(p)
-        console.log(q)
-        
-        break;
-    }
-}
+//     for (let i = 0; i <= payroll.length ; i++) {
+//         if (payroll[i].position == q) {
+//         positions.salary += payroll[i].salary.amount
+
+//         }
+//     }
+//     // console.log(positions)
+
+// }
+
+// for (let i = 0; i <= payroll.length; i++) {
+//     var p = payroll
+// }
 
 
 
@@ -150,8 +184,8 @@ fs.writeFile('data/userrecord.json', JSON.stringify(overview, null, 2), err => {
 
 
 module.exports = (req, res) => {
-    console.log(JSON.stringify(overview, null, 2))
-    console.log(positions)
+    // console.log(JSON.stringify(overview, null, 2))
+    console.log(jobandwage(2))
 
     res.send('implemented');
 };
