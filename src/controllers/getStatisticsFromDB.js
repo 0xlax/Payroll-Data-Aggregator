@@ -97,7 +97,30 @@ function logTotal() {
     return numc.totalPaid
 }
 
-// Total  salary paid by positions
+// Averge salary paid by positions
+
+async function getSumByPo() {
+    const sumofpo = await Users.findAll({
+        attributes: [
+            'position'[sequelize.fn('AVG', sequelize.col('salary')), 'Positions']],
+        group: 'position',
+        order: [[sequelize.fn('AVG', sequelize.col('salary')), 'DESC']],
+
+        raw: true
+    })
+    return sumofpo
+} 
+var po = []
+function getSumPo() {
+    getSumByPo().then( (result) => pos = result );
+    return po
+}
+
+
+
+
+
+
 async function getSumByPos() {
     const sumofpos = await Users.findAll({
         attributes: [[sequelize.fn('AVG', sequelize.col('salary')), 'Positions']],
@@ -114,7 +137,6 @@ function getSumPos() {
 }
 
 
-console.log(pos)
 
 
 
@@ -166,7 +188,10 @@ module.exports = (req, res) => {
     console.log("number_of_employees : " + logUsers(), )
     console.log("sum_of_paid_salaries: " + logTotal())
     console.log("average_salary: " + logTotal() / logUsers())
-    console.log("average_salary_by_position : " + getSumPos())
+    console.log(pos)
+    console.log(po)
+
+    console.log("average_salary_by_position : " + pos)
     console.log(overview)
     res.send('Implementing....');
 };
