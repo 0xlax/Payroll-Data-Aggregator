@@ -1,21 +1,44 @@
 
-Name : L Harshith
-Email : Harshith.lax@gmail.com
+# Klink Backend Developer Coding Challenge
 
 
 
+## prerequisite
+
+Make sure the port doesn't conjest
 ```
 fuser -k 3000/tcp
 ```
+Set up a mySQL database
+
+```
+sudo apt install mysql-server
+```
+Create a user or root with grant access to databases
+
+Login and then, create database called "Payroll"
+
+```
+CREATE DATABASE payroll
+USE payorll
+```
+
+Once the repository is cloned, enter the repository and install packages
+
+```
+npm install
+```
+
+and start server
+
 
 ```
 npm run start
 ```
 
-http://localhost/3000/stat
 
 
-# Klink Backend Developer Coding Challenge
+
 
 
 Welcome to the Klink backend coding challenge.
