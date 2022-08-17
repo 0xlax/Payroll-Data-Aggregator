@@ -17,8 +17,8 @@ const count = Sequelize.Model;
 
 const sequelize = new Sequelize(
  'payroll',
- 'laxman',
- 'lasuprha',
+ 'NAME',
+ 'PASSWORD',
   {
     host: 'localhost',
     dialect: 'mysql'
