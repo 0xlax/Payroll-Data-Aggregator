@@ -1,11 +1,27 @@
 const fs = require('fs');
 const payroll = require('../../data/payroll.json')
-const knexConfig = require('../../knexfile');
-const knex = require('knex')(knexConfig[process.env.NODE_ENV])
+var mysql = require('mysql');
+
+var bodyParser = require('body-parser');
+const { request } = require('http');
+
+
+var connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'node',
+	password: 'node',
+	database: 'payroll'
+  })
 
 
 
-module.exports = (req, res) => {
-    console.log(payroll)
+
+
+
+
+
+
+module.exports = (req, res) => { 
+    console.log("SQL running")
     res.send('Implementing....');
 };

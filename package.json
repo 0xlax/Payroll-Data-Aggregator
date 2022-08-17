@@ -13,10 +13,12 @@
   "devDependencies": {
     "@faker-js/faker": "^7.4.0"
   },
+  
   "dependencies": {
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "knex": "^2.2.0",
+    "mysql": "^2.18.1",
     "node-fetch": "^3.2.10",
     "pg": "^8.7.3",
     "sqlite3": "^5.0.11"
@@ -29,5 +31,6 @@
   "bugs": {
     "url": "https://github.com/0xlax/backend-developer/issues"
   },
+
   "homepage": "https://github.com/0xlax/backend-developer#readme"
 }
