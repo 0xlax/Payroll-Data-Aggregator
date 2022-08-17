@@ -38,9 +38,9 @@ npm run start
 
 ```mermaid
 flowchart TD
-    A[Server] --- > B{Controllers};
-    B ---> C[getStatistics.js];
-    B ---> D[getStatisticsFromDB.js];
+    A[Server] --> B{Controllers};
+    B ----> C[getStatistics.js];
+    B --mySQL--> D[getStatisticsFromDB.js];
 ```
 
 
