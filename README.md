@@ -5,7 +5,7 @@
 
 ## Prerequisite
 
-Make sure the port doesn't conjest
+Make sure the port is clear
 ```
 fuser -k 3000/tcp
 ```
@@ -20,7 +20,7 @@ Login and then, create database called "Payroll"
 
 ```
 CREATE DATABASE payroll
-USE payorll
+USE payroll
 ```
 
 Once the repository is cloned, enter the repository and install packages
@@ -41,8 +41,8 @@ flowchart TD
     A[Server] --> B{Controllers};
     B ----> C[getStatistics.js];
     B ----> D[getStatisticsFromDB.js];
-    C ----> E[localhost/stat];
-    C --mySQL + Sequelize.js--> F[localhost/stat-from-db];
+    C ----> E[http://localhost/stat];
+    D --mySQL + Sequelize.js--> F[http://localhost/stat-from-db];
 ```
 
 
