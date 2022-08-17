@@ -40,7 +40,9 @@ npm run start
 flowchart TD
     A[Server] --> B{Controllers};
     B ----> C[getStatistics.js];
-    B --mySQL--> D[getStatisticsFromDB.js];
+    B ----> D[getStatisticsFromDB.js];
+    C ----> E[localhost/stat];
+    C --mySQL + Sequelize.js--> F[localhost/stat-from-db];
 ```
 
 
