@@ -59,24 +59,9 @@ sequelize.sync().then(() => {
 });
 
 
-// Total per Position - WIP
-async function getTotalPaid() {
-    const totalAmount = await Users.findAll({
-        attributes: [
-            'position',
-            [sequelize.fn('sum', sequelize.col('salary')), 'total_amount'],
-        ],
-        group: ['position'],
-        raw: true
-    })
-
-    return totalAmount
-    
-}
 
 
 // Number of Users
-
 async function getUsers() {
     
     const countUser = await Users.count()
@@ -96,34 +81,53 @@ function logUsers() {
 
 
 
-// totaal sum being paid
+
+// Sum of Salaries Paid
 async function getSum() {
     const sumOf = await Users.findAll({
         attributes: [[sequelize.fn('sum', sequelize.col('salary')), 'totalPaid']],
         raw: true
     })
-    return sumOf
+    return sumOf[0]
 } 
 
-// async function getSum() {
-//     const totalSalary
-// }
+var numc = []
+function logTotal() {
+    getSum().then( (result) => numc = result );
+    return numc.totalPaid
+}
+
+// Total  salary paid by positions
+async function getSumByPos() {
+    const sumofpos = await Users.findAll({
+        attributes: [[sequelize.fn('AVG', sequelize.col('salary')), 'Positions']],
+        group: 'position',
+        raw: true
+    })
+    return sumofpos
+} 
+
+var pos = []
+function getSumPos() {
+    getSumByPos().then( (result) => pos = result );
+    return pos
+}
+
+
+console.log(pos)
 
 
 
 
-sequelize.authenticate().then(() => {
-    console.log('Connection has been established successfully.');
- }).catch((error) => {
-    console.error('Unable to connect to the database: ', error);
- });
- 
 
- var overview = {
-    "number_of_employees": logUsers(),        // number of employees in the data set
-    "sum_of_paid_salaries": "",      // sum of the salaries listed across the data set
-    "average_salary": "",             // average salary of all employees
-    "average_salary_by_position": {   // average salary aggregated by position
+
+
+
+var overview = {
+    // "number_of_employees" : logUsers(),
+    // "sum_of_paid_salaries": "",      
+    // "average_salary": "",             
+    "average_salary_by_position": {   
         "Orchestrator": "",
         "Architect": "",
         "Liaison": "",
@@ -160,8 +164,9 @@ sequelize.authenticate().then(() => {
 
 module.exports = (req, res) => { 
     console.log("number_of_employees : " + logUsers(), )
-    // console.log(getSum())
-    // console.log(getTotalPaid())
+    console.log("sum_of_paid_salaries: " + logTotal())
+    console.log("average_salary: " + logTotal() / logUsers())
+    console.log("average_salary_by_position : " + getSumPos())
     console.log(overview)
     res.send('Implementing....');
 };
