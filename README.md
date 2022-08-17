@@ -37,7 +37,7 @@ npm run start
 ```
 
 ```mermaid
-flowchard TD
+flowchart TD
     A[Server] --- > B{Controllers};
     B ---> C[getStatistics.js];
     B ---> D[getStatisticsFromDB.js];
