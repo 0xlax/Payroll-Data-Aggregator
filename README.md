@@ -3,7 +3,7 @@
 
 
 
-## prerequisite
+## Prerequisite
 
 Make sure the port doesn't conjest
 ```
@@ -36,9 +36,51 @@ and start server
 npm run start
 ```
 
+```mermaid
+flowchard TD
+    A[Server] --- > B{Controllers};
+    B ---> C[getStatistics.js];
+    B ---> D[getStatisticsFromDB.js];
+```
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Assignment 
 
 
 Welcome to the Klink backend coding challenge.
