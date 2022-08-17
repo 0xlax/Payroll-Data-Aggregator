@@ -5,15 +5,22 @@ var bodyParser = require('body-parser');
 const { request } = require('http');
 const { prepareValue } = require('pg/lib/utils');
 const res = require('express/lib/response');
-const { Sequelize, Model, DataTypes } = require('sequelize');
 
 
-const sequelize = new Sequelize('sqlite::memory:');
-const User = sequelize.define('User', {
-  username: DataTypes.STRING,
-  birthday: DataTypes.DATE,
-});
 
+
+
+
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(
+ 'payroll',
+ '',
+ '',
+  {
+    host: 'localhost',
+    dialect: 'mysql'
+  }
+);
 
 
 sequelize.authenticate().then(() => {
@@ -22,6 +29,44 @@ sequelize.authenticate().then(() => {
     console.error('Unable to connect to the database: ', error);
  });
  
+
+// const sequelize = new Sequelize('sqlite::memory:');
+// const User = sequelize.define('User', {
+//   position: DataTypes.STRING,
+//   salary: DataTypes.FLOAT,
+// });
+
+
+
+
+// Promise.all(payroll.map(function(value) {
+//     User.create({
+//         position: payroll.position,
+//         salary: payroll.salary.amount,
+//     })
+//     return Guild.findOrCreate({where: {position: payroll[key].position, salary: payroll[key].salary.amount}, defaults: {
+//                 position: payroll[key].position,
+//                 salary: payroll[key].salary.amount
+//             }})
+//             .spread(function(payroll, created) {
+//                 console.log(payroll.get ({
+//                     plain: true
+//                 }))
+//                 console.log(created)
+//             })
+//   })).then(function() {
+//     console.log("created")
+//   })
+  
+
+
+// for (var key in payroll) {
+//     Guild
+//     .findOrCreate
+// }
+
+
+
 // var connection = mysql.createConnection({
 // 	host: 'localhost',
 // 	user: 'node',
