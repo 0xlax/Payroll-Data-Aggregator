@@ -9,9 +9,9 @@ const res = require('express/lib/response');
 
 
 
-
-
 const Sequelize = require("sequelize");
+const DataTypes = Sequelize.DataTypes;
+
 const sequelize = new Sequelize(
  'payroll',
  '',
@@ -21,6 +21,46 @@ const sequelize = new Sequelize(
     dialect: 'mysql'
   }
 );
+
+const Users = sequelize.define("users", {
+    position: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull:  false
+    },
+    salary: {
+        type:  DataTypes.INTEGER,
+    }
+})
+
+
+
+
+
+
+sequelize.sync().then(() => {
+   console.log('Book table created successfully!');
+
+    for (let i = 0; i < payroll.length; i++) {
+        Users.create({
+            position: payroll[i].position,
+            salary: payroll[i].salary.amount,
+        }).then(res => {
+            console.log(res)
+        }).catch((error) => {
+            console.error('Failed to create a new record : ', error);
+        });
+     
+    }
+
+
+
+}).catch((error) => {
+   console.error('Unable to create table : ', error);
+});
+
+
+
+
 
 
 sequelize.authenticate().then(() => {
